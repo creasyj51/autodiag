@@ -18,7 +18,7 @@ app.get("/test-mail", async (req, res) => {
       service: "gmail",
       auth: {
         user: "creasyjesterdesign@gmail.com",
-        pass: "JiMc@rrey51170"
+        pass: "dbfhtkmedkrrvcoh"
       }
     });
 
@@ -50,7 +50,7 @@ app.post("/signalement", async (req, res) => {
       service: "gmail",
       auth: {
         user: "creasyjesterdesign@gmail.com",
-        pass: "JiMc@rrey51170"
+        pass: "dbfhtkmedkrrvcoh"
       }
     });
 
