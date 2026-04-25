@@ -23,8 +23,8 @@ app.post("/signalement", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
+        user: "creasyjesterdesign@gmail.com",
+        pass: "JiMc@rrey51170"
       }
     });
 
@@ -38,8 +38,8 @@ app.post("/signalement", async (req, res) => {
       "Description : " + description + "\n";
 
     await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.EMAIL_TO,
+      from: "AutoDiag <creasyj51@gmail.com>",
+      to: "creasyj51@gmail.com",
       subject: "Nouveau signalement AutoDiag - " + immat,
       text: texte
     });
