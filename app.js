@@ -11,6 +11,32 @@ app.get("/", (req, res) => {
   res.type("text").send("Serveur AutoDiag OK");
 });
 
+// 🔥 ROUTE TEST (tu peux cliquer dessus dans le navigateur)
+app.get("/test-mail", async (req, res) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "creasyjesterdesign@gmail.com",
+        pass: "JiMc@rrey51170"
+      }
+    });
+
+    await transporter.sendMail({
+      from: "AutoDiag <creasyjesterdesign@gmail.com>",
+      to: "creasyj51@gmail.com",
+      subject: "🚀 Test AutoDiag",
+      text: "Si tu reçois ce mail, tout fonctionne parfaitement 👍"
+    });
+
+    res.send("MAIL TEST ENVOYÉ !");
+  } catch (e) {
+    console.error(e);
+    res.status(500).send("ERREUR TEST");
+  }
+});
+
+// 🔥 ROUTE NORMALE (utilisée par ton formulaire)
 app.post("/signalement", async (req, res) => {
   try {
     const immat = req.body.immat || "";
@@ -38,7 +64,7 @@ app.post("/signalement", async (req, res) => {
       "Description : " + description + "\n";
 
     await transporter.sendMail({
-      from: "AutoDiag <creasyj51@gmail.com>",
+      from: "AutoDiag <creasyjesterdesign@gmail.com>",
       to: "creasyj51@gmail.com",
       subject: "Nouveau signalement AutoDiag - " + immat,
       text: texte
